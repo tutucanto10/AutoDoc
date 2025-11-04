@@ -1,40 +1,39 @@
-# AutoDoc
-Gerador inteligente de relatórios corporativos em **Python + IA**.
+📄 ### AutoDoc – Intelligent Report Generator with AI
 
-## ✅ Recursos
-- Importa **CSV/XLSX/JSON**
-- KPIs automáticos e **gráficos** (Matplotlib)
-- Exporta **PDF** (ReportLab) e **Excel** (XLSXWriter)
-- **Resumo por IA** com LangChain + OpenAI (opcional)
-- Interface **Streamlit** + CLI
+AutoDoc is a smart, automated report generator built with Python + AI, designed to transform raw data (Excel, CSV, or JSON) into insightful PDF and Excel reports — complete with KPIs, charts, and AI-generated summaries.
 
-## 🧪 Exemplo rápido (dados de vendas)
-Um dataset de exemplo está em `data/sample_sales.csv`.
+------
 
-## 🚀 Como rodar
-```bash
-# 1) Crie o ambiente
-python -m venv .venv && . .venv/bin/activate  # (Linux/Mac)
-# Windows: python -m venv .venv && .\.venv\Scripts\activate
+🚀 ### Features
 
-# 2) Instale dependências
-pip install -r requirements.txt
+📊 Automatic data analysis from CSV, Excel, or JSON
+📈 Charts and KPIs generated via Matplotlib + Pandas
+🧠 AI summaries using LangChain + OpenAI (optional)
+🧾 Export to PDF (ReportLab) and Excel (XLSXWriter)
+💻 Modern web interface built with Streamlit
+🧰 Command-line tool (CLI) included for power users
+💬 Fallback summary if no API key is provided
 
-# 3) (Opcional) Configure a IA
-export OPENAI_API_KEY="sk-..."  # Windows: set OPENAI_API_KEY=...
+------
 
-# 4) CLI: gerar relatório
-python main.py -i data/sample_sales.csv -o output --title "Relatório de Vendas" --excel --ai
+🧠 ### Tech Stack
 
-# 5) Interface web (Streamlit)
-streamlit run interface/app.py
-```
+Category	Technologies
+Language	Python 3.11+
+Frontend	Streamlit
+Backend / Data	Pandas, Matplotlib
+Report Generation	ReportLab, XlsxWriter
+AI / NLP	LangChain, OpenAI API
+Storage	SQLite (optional)
 
-## 🧱 Estrutura
-```
+------
+
+🗂️ ### Project Structure
+
 AutoDoc/
 ├── main.py
 ├── data/
+│   └── sample_sales.csv
 ├── modules/
 │   ├── reader.py
 │   ├── analyzer.py
@@ -45,9 +44,94 @@ AutoDoc/
 ├── assets/
 ├── requirements.txt
 └── README.md
-```
 
-## 📝 Notas
-- O resumo por IA cai para um **fallback** automático se não houver `OPENAI_API_KEY`.
-- Os gráficos são salvos no diretório de saída temporário e inseridos no PDF.
-- O Excel contém abas `Data` e `KPIs`.
+------
+
+⚙️ ### Installation
+# 1️⃣ Create a virtual environment
+python -m venv .venv
+# Activate it:
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+
+# 2️⃣ Install dependencies
+pip install -r requirements.txt
+
+------
+
+🤖 ### Optional: Enable AI Summaries
+
+To allow AI-generated insights, set your OpenAI API key:
+
+# Windows (cmd)
+set OPENAI_API_KEY=sk-...
+# macOS/Linux (bash/zsh)
+export OPENAI_API_KEY="sk-..."
+
+------
+
+🧮 ### CLI Usage
+python main.py -i data/sample_sales.csv -o output --title "Sales Report" --excel --ai
+
+
+Arguments:
+
+Flag	Description
+-i / --input	Path to input file (CSV/XLSX/JSON)
+-o / --output	Output folder
+-t / --title	Report title
+--excel	Generate Excel report
+--ai	Include AI summary (requires API key)
+--no-pdf	Skip PDF generation
+
+------
+
+🌐 ### Streamlit Web Interface
+
+Start the interactive app with:
+
+streamlit run interface/app.py
+
+Then open your browser (default: http://localhost:8501) to:
+
+Upload files
+Preview data and KPIs
+Generate PDF and Excel reports
+Optionally use AI to summarize insights
+
+------
+
+🧩 ### Example Dataset
+
+A sample sales dataset is provided at:
+
+data/sample_sales.csv
+
+------
+
+🪶 ### Example Output
+
+PDF Report: Includes logo, title, KPIs table, charts, and AI insights
+
+Excel Report: Two sheets (Data and KPIs)
+
+Charts: Automatically saved and embedded in the PDF
+
+------
+
+💡 ### Future Improvements (Next Milestones)
+
+Add time-series and regional KPIs
+Include custom color themes and PDF templates
+Enable direct SharePoint / Supabase upload
+Add user authentication (for web version)
+
+------
+
+👨‍💻 Author
+
+Artur Canto
+Python Developer • Automation & AI Enthusiast
+📍 Rio de Janeiro, Brazil
